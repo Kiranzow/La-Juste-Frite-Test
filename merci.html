@@ -29,6 +29,12 @@ body {
   align-items: center;
 }
 
+#message {
+  font-size: 18px;
+  color: #d9534f;
+  margin-bottom: 15px;
+}
+
 .logo-row {
   display: flex;
   justify-content: space-between;
@@ -38,7 +44,7 @@ body {
 }
 
 .side-logo {
-  width: 120px;
+  width: 140px; /* agrandis un peu plus */
   height: auto;
 }
 
@@ -65,6 +71,17 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+
+.asso-text ul {
+  margin-left: 0;
+  padding-left: 20px;
+}
+
+.asso-text ul ul {
+  margin-left: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
 </style>
 </head>
 
@@ -76,29 +93,20 @@ body {
 
   <div class="logo-row">
     <img src="logo-foodtruck.png" alt="Logo Foodtruck" class="side-logo">
-
     <a href="https://magdala.asso.fr" target="_blank" class="center-link">
       Visiter le site de l'asso Magdala
     </a>
-
     <img src="logo-magdala.png" alt="Logo Magdala" class="side-logo">
   </div>
 
   <div class="asso-text">
-    <p>
-      Tu viens de participer à un concours organisé par le foodtruck de l'association
-      <strong>Magdala</strong>, qui accompagne des personnes connaissant la précarité sur Lille.
-    </p>
+    <p>Tu viens de participer à un concours organisé par le foodtruck de l'association <strong>Magdala</strong>, qui accompagne des personnes connaissant la précarité sur Lille.</p>
 
-    <p>
-      Avec le <strong>FoodTruck Ch'ti Talent</strong>, nous réinsérons des personnes par le travail.
-      Tu peux nous soutenir :
-    </p>
+    <p>Avec le <strong>FoodTruck Ch'ti Talent</strong>, nous réinsérons des personnes par le travail. Tu peux nous soutenir :</p>
 
     <ul>
       <li>En devenant bénévole</li>
-      <li>
-        En venant manger nos plats préparés avec soin :
+      <li>En venant manger nos plats préparés avec soin :
         <ul>
           <li>Lundi midi : Bâtiment Rizmon</li>
           <li>Mercredi midi : ICAM</li>
@@ -107,18 +115,16 @@ body {
       </li>
     </ul>
 
-    <p>
-      Tu peux nous suivre sur Instagram : <strong>ChTiTalents 📸</strong>
-    </p>
+    <p>Tu peux nous suivre sur Instagram : <strong>ChTiTalents 📸</strong></p>
   </div>
 </div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
 
-const nom = params.get("nom");
-const prenom = params.get("prenom");
-const poids = params.get("poids");
+const nom = params.get("nom") || '';
+const prenom = params.get("prenom") || '';
+const poids = params.get("poids") || '';
 
 if (nom && prenom && poids) {
   document.getElementById("message").innerHTML =
