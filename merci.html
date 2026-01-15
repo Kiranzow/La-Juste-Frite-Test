@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Merci</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff3cd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.side-logo {
+  width: 120px;
+  height: auto;
+}
+
+.center-link {
+  text-decoration: none;
+  color: #d9534f;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  padding: 0 10px;
+  flex: 1;
+}
+
+.asso-text {
+  text-align: justify;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff8e1;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>🍟 Merci ! 🍟</h1>
+  <p id="message"></p>
+
+  <div class="logo-row">
+    <img src="logo-foodtruck.png" alt="Logo Foodtruck" class="side-logo">
+
+    <a href="https://magdala.asso.fr" target="_blank" class="center-link">
+      Visiter le site de l'asso Magdala
+    </a>
+
+    <img src="logo-magdala.png" alt="Logo Magdala" class="side-logo">
+  </div>
+
+  <div class="asso-text">
+    <p>
+      Tu viens de participer à un concours organisé par le foodtruck de l'association
+      <strong>Magdala</strong>, qui accompagne des personnes connaissant la précarité sur Lille.
+    </p>
+
+    <p>
+      Avec le <strong>FoodTruck Ch'ti Talent</strong>, nous réinsérons des personnes par le travail.
+      Tu peux nous soutenir :
+    </p>
+
+    <ul>
+      <li>En devenant bénévole</li>
+      <li>
+        En venant manger nos plats préparés avec soin :
+        <ul>
+          <li>Lundi midi : Bâtiment Rizmon</li>
+          <li>Mercredi midi : ICAM</li>
+          <li>Jeudi midi : Faculté de médecine</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>
+      Tu peux nous suivre sur Instagram : <strong>ChTiTalents 📸</strong>
+    </p>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const nom = params.get("nom");
+const prenom = params.get("prenom");
+const poids = params.get("poids");
+
+if (nom && prenom && poids) {
+  document.getElementById("message").innerHTML =
+    `Merci <strong>${prenom} ${nom}</strong> !<br>
+     Tu as estimé la barquette à <strong>${poids} grammes</strong>.`;
+}
+</script>
+
+</body>
+</html>
