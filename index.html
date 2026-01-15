@@ -34,9 +34,7 @@ input, select, button {
     font-size: 16px;
     box-sizing: border-box;
 }
-select {
-    background-color: white;
-}
+select { background-color: white; }
 button {
     background-color: #f0ad4e;
     border: none;
@@ -44,9 +42,7 @@ button {
     cursor: pointer;
     margin-top: 20px;
 }
-button:hover {
-    background-color: #ec971f;
-}
+button:hover { background-color: #ec971f; }
 .checkbox {
     display: flex;
     align-items: center;
@@ -54,14 +50,9 @@ button:hover {
     font-size: 14px;
     text-align: left;
 }
-.checkbox input {
-    width: auto;
-    height: auto;
-    margin-right: 10px;
-}
+.checkbox input { width: auto; height: auto; margin-right: 10px; }
 </style>
 </head>
-
 <body>
 
 <div class="card">
@@ -99,18 +90,17 @@ document.getElementById("justeFriteForm").addEventListener("submit", function(ev
     const data = new FormData(form);
 
     // Nouveau lien Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbw4OkLbePkO1M72qY9hBquarCPIBBAmgbCbSGnFwJULIJP5fny8rgXGGs8_8_cBZ4pR_A/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyCs5JnqFtb9n2fzYa4qosDXF0eR9uC9t1TId3Qss9HTnLIKg0bMx7H7_eHa3zuyOAUtg/exec", {
         method: "POST",
         body: data,
-        mode: "no-cors" // Important pour éviter CORS
+        mode: "no-cors"
     })
     .then(() => {
-        // Récupération des valeurs pour la page merci.html
         const nom = form.nom.value;
         const prenom = form.prenom.value;
         const poids = form.poids.value;
 
-        // Redirection vers merci.html avec paramètres
+        // Redirection vers merci.html
         window.location.href =
             "merci.html?nom=" + encodeURIComponent(nom) +
             "&prenom=" + encodeURIComponent(prenom) +
