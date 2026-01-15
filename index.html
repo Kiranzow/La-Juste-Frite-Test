@@ -98,19 +98,19 @@ document.getElementById("justeFriteForm").addEventListener("submit", function(ev
     const form = event.target;
     const data = new FormData(form);
 
-    // Envoi vers Google Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbxkgRzB-3U_c8b73fWy1QDuDj2D4iP-BZyXBU5zZjM1hT_JuehKlPgkAar99_fWShAFtQ/exec", {
+    // Nouveau lien Apps Script
+    fetch("https://script.google.com/macros/s/AKfycbw4OkLbePkO1M72qY9hBquarCPIBBAmgbCbSGnFwJULIJP5fny8rgXGGs8_8_cBZ4pR_A/exec", {
         method: "POST",
         body: data,
-        mode: "no-cors" // IMPORTANT pour éviter les erreurs CORS
+        mode: "no-cors" // Important pour éviter CORS
     })
     .then(() => {
-        // Récupère nom, prenom et poids pour afficher sur Merci.html
+        // Récupération des valeurs pour la page merci.html
         const nom = form.nom.value;
         const prenom = form.prenom.value;
         const poids = form.poids.value;
 
-        // Redirection vers Merci.html
+        // Redirection vers merci.html avec paramètres
         window.location.href =
             "merci.html?nom=" + encodeURIComponent(nom) +
             "&prenom=" + encodeURIComponent(prenom) +
