@@ -89,8 +89,8 @@ document.getElementById("justeFriteForm").addEventListener("submit", function(ev
     const form = event.target;
     const data = new FormData(form);
 
-    // 🔑 Remplace cette URL par ton déploiement Apps Script public
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyCs5JnqFtb9n2fzYa4qosDXF0eR9uC9t1TId3Qss9HTnLIKg0bMx7H7_eHa3zuyOAUtg/exec";
+    // 🔑 URL publique de ton Google Apps Script
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxC1SIAg1FQhjRNz18m8GHp6S_buluHBdngED01sYEVOJQMK9xnwSA_N1BOKBjUAn0J/exec";
 
     fetch(scriptURL, {
         method: "POST",
@@ -98,12 +98,11 @@ document.getElementById("justeFriteForm").addEventListener("submit", function(ev
         mode: "no-cors" // important pour GitHub Pages
     })
     .then(() => {
-        // Récupération des valeurs pour Merci.html
         const nom = form.nom.value;
         const prenom = form.prenom.value;
         const poids = form.poids.value;
 
-        // Redirection vers Merci.html
+        // Redirection vers la page Merci
         window.location.href =
             "merci.html?nom=" + encodeURIComponent(nom) +
             "&prenom=" + encodeURIComponent(prenom) +
